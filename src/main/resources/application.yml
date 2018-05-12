@@ -1,0 +1,12 @@
+spring:
+
+  kafka:
+    bootstrap-servers: 192.168.77.33:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.IntegerSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+    consumer:
+      group-id: gateway-api
+      value-deserializer: org.springframework.kafka.support.serializer.JsonDeserializer
+      properties:
+        spring.json.value.default.type: com.neetkee.example.event.PersonChecked
